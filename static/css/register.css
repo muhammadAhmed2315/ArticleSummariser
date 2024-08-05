@@ -1,0 +1,23 @@
+.register-title {
+  color: #272727;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.register-heading {
+  color: #341c52;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.register-text {
+  color: #341c52;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.already-have-an-account-link:link,
+.already-have-an-account-link:visited {
+  font-size: 1.4rem;
+  color: #3b82f6;
+}

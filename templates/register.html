@@ -1,0 +1,65 @@
+<!-- prettier-ignore -->
+{% extends "login-base.html" %} 
+{% block css_link %}
+<link rel="stylesheet" href="../static/css/register.css" />
+{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<div class="register-section">
+  <h1 class="register-title">Sign up to Scholarcy</h1>
+  <p class="register-heading">
+    Subscribe today and the first <strong>7 days are free.</strong>
+  </p>
+  <p class="register-text">
+    Then <strong>£7.99</strong> per month or <strong>£72.00</strong> per year.
+  </p>
+  <a
+    class="already-have-an-account-link"
+    href="{{ url_for('user_authentication.login') }}"
+  >
+    Already have an account?
+  </a>
+  <!-- prettier-ignore -->
+  <form method="post">
+    {{ registerForm.hidden_tag() }}
+
+    <!-- EMAIL -->
+    {{ registerForm.email.label(class="form-label") }} <br />
+    {{ registerForm.email(class="form-field") }} <br />
+
+    <!-- EMAIL ERROR MESSAGES -->
+    {% for error in registerForm.email.errors %}
+    <div class="invalid-feedback">
+      {{ error }}
+    </div>
+    {% endfor %}
+
+    <!-- PASSWORD -->
+    {{ registerForm.password.label(class="form-label") }} <br />
+    {{ registerForm.password(class="form-field") }} <br />
+
+    <!-- PASSWORD ERROR MESSAGES -->
+    {% for error in registerForm.password.errors %}
+    <div class="invalid-feedback">
+      {{ error }}
+    </div>
+    {% endfor %}
+
+    <!-- CONFIRM PASSWORD -->
+    {{ registerForm.pass_confirm.label(class="form-label") }}
+    <br />
+    {{registerForm.pass_confirm(class="form-field") }} <br />
+
+    <!-- CONFIRM PASSWORD ERROR MESSAGES -->
+    {% for error in registerForm.pass_confirm.errors %}
+    <div class="invalid-feedback">
+      {{ error }}
+    </div>
+    {% endfor %}
+
+
+    <!-- SUBMIT BUTTON -->
+    {{ registerForm.submit(class="form-submit") }}
+  </form>
+</div>
+{% endblock %}

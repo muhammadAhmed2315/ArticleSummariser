@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="TODO" />
+    <meta name="keywords" content="TODO" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/login-base.css" />
+    {% block css_link %}{% endblock %}
+    <title>TODO</title>
+  </head>
+  <body>
+    <div class="left-section">
+      <img
+        class="logo"
+        href="#"
+        src="../static/img/login/logo.webp"
+        alt="Scholarcy logo"
+      />
+      <div class="testimonial-section">
+        <p class="testimonial-label">Testimonials</p>
+        <p class="testimonial-heading">What People Are Saying</p>
+        <p class="testimonial">
+          "Quick processing times, successfully summarised important points"
+        </p>
+        <p class="testimonial-author">Xuan</p>
+        <p class="testimonial-location">Vietnam</p>
+      </div>
+    </div>
+
+    <div class="right-section">{% block content %} {% endblock %}</div>
+
+    <script>
+      // ********** GENERATE RANDOM TESTIMONIAL **********
+      const testimonials = [
+        {
+          text: '"It’s really good for case study analysis, thank you for this too"',
+          author: "Apoorv",
+          location: "India",
+        },
+        {
+          text: '"Scholarcy is a great tool and it has helped me immensely with my studies"',
+          author: "Broba",
+          location: "Canada",
+        },
+        {
+          text: '"I love this website so much it has made my research a lot easier thanks!"',
+          author: "Noureen",
+          location: "Korea",
+        },
+        {
+          text: '"Thank you for making my life easier"',
+          author: "Najwwmir",
+          location: "Malaysia",
+        },
+        {
+          text: '"The instant feedback I get from this tool is amazing"',
+          author: "Lebalao",
+          location: "Botswana",
+        },
+        {
+          text: '"I don’t think I could have attained my Master’s in Systems Thinking without this fantastic platform."',
+          author: "James Cracknell",
+          location: "UK",
+        },
+        {
+          text: '"Quick processing time, successfully summarized important points"',
+          author: "Xuan",
+          location: "Vietnam",
+        },
+      ];
+      rng = Math.floor(Math.random() * testimonials.length);
+      console.log(rng);
+      document.querySelector(".testimonial").textContent =
+        testimonials[rng]["text"];
+      document.querySelector(".testimonial-author").textContent =
+        testimonials[rng]["author"];
+      document.querySelector(".testimonial-location").textContent =
+        testimonials[rng]["location"];
+    </script>
+  </body>
+</html>
