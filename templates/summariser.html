@@ -14,5 +14,70 @@
     <link rel="stylesheet" href="../static/css/summariser.css" />
     <title>TODO</title>
   </head>
-  <body></body>
+
+  <body>
+    <header>
+      <nav class="navigation-bar">
+        <img src="../static/img/summariser/logo.svg" />
+        <a class="view-previous-summaries-btn" href="#"
+          >View Previous Summaries</a
+        >
+        <a class="upgrade-btn" href="#">Upgrade</a>
+      </nav>
+    </header>
+    <div class="main-container">
+      <h1 class="title-text">Summarise your text...</h1>
+      <div class="settings">
+        <p class="model-label">Modes</p>
+        <a class="model-setting model-setting-one active" href="#">Summarise</a>
+        <a class="model-setting model-setting-two" href="#">Key info</a>
+        <a class="model-setting model-setting-three" href="#"
+          >Entity recognition</a
+        >
+        <div class="model-dropdown">
+          <button class="dropbtn">Select Model</button>
+          <div class="dropdown-content">
+            <p class="dropdown-option dropdown-option-one">GPT-4o mini</p>
+            <p class="dropdown-option dropdown-option-two">GPT-4o</p>
+            <p class="dropdown-option dropdown-option-three">GPT-4</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="io-section">
+        <div class="input-section">
+          <textarea class="input"></textarea>
+          <a class="generate-btn" href="#">Generate</a>
+        </div>
+        <div class="output-section">
+          <p class="output"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLEASE SELECT A MODEL POPUP -->
+    <div class="modal">
+      <div class="modal-container">
+        <div class="modal-top">
+          <p class="modal-heading">Error</p>
+          <span class="modal-close-btn">
+            <ion-icon name="close-outline"></ion-icon>
+          </span>
+        </div>
+        <p class="modal-text">Please select a model</p>
+        <p class="modal-confirm-btn">OK</p>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="../static/js/summariser.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>

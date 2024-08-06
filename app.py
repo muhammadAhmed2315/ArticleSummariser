@@ -1,11 +1,12 @@
 from flask import Flask
 from flask_migrate import Migrate
 from extensions import db, login_manager
+from summariser.app import summariser
 
 import logging
 
 log = logging.getLogger("werkzeug")
-log.disabled = True
+# log.disabled = True
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "mysecretkey"
@@ -21,6 +22,7 @@ login_manager.login_view = "user_authentication.login"
 from login.app import user_authentication
 
 app.register_blueprint(user_authentication)
+app.register_blueprint(summariser)
 
 # Create tables if they don't exist, within the application context
 with app.app_context():
