@@ -13,6 +13,12 @@ def home():
     return render_template("home.html")
 
 
+@user_authentication.route("/logout")
+def logout():
+    logout_user()
+    return render_template("home.html")
+
+
 @user_authentication.route("/login", methods=["get", "post"])
 def login():
     loginForm = LoginForm()

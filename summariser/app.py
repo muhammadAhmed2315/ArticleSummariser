@@ -1,16 +1,24 @@
-from flask import request, Blueprint, jsonify, render_template
+from flask import request, Blueprint, render_template
 from openai import OpenAI
+from flask_login import login_required
+from models import Generation
+from datetime import datetime, timezone
+from extensions import db
+from flask_login import current_user
+from app import app
 
 summariser = Blueprint("summariser", __name__)
 client = OpenAI()
 
 
 @summariser.route("/summarise")
+@login_required
 def summarise():
     return render_template("summariser.html")
 
 
 @summariser.route("/summarise_text", methods=["get", "post"])
+@login_required
 def summarise_text():
     data = request.get_json()
     inputText = data["message"]
@@ -36,7 +44,7 @@ def summarise_text():
         "entityrecognition": "I need all the entities recognized in the following text: ",
     }
 
-    def generate():
+    def generate(user_id):
         stream = client.chat.completions.create(
             model=selectedModel,
             messages=[
@@ -49,9 +57,23 @@ def summarise_text():
             stream=True,
         )
 
+        output = ""
         for chunk in stream:
             if chunk.choices[0].delta.content is not None:
-                print(chunk.choices[0].delta.content)
+                output += chunk.choices[0].delta.content
                 yield (chunk.choices[0].delta.content)
 
-    return generate(), {"Content-Type": "text/plain"}
+        # Update the database
+        generation = Generation(
+            selectedMode,
+            selectedModel,
+            datetime.now(timezone.utc),
+            inputText,
+            output,
+            user_id,
+        )
+        with app.app_context():
+            db.session.add(generation)
+            db.session.commit()
+
+    return generate(current_user.get_id()), {"Content-Type": "text/plain"}
