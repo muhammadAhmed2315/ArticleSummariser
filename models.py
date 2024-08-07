@@ -28,12 +28,16 @@ class Generation(db.Model):
     model = db.Column(db.String)
     inputText = db.Column(db.Text)
     outputText = db.Column(db.Text)
+    aboutText = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
-    def __init__(self, mode, model, time_generated, inputText, outputText, user_id):
+    def __init__(
+        self, mode, model, time_generated, inputText, outputText, aboutText, user_id
+    ):
         self.mode = mode
         self.model = model
         self.time_generated = time_generated
         self.inputText = inputText
         self.outputText = outputText
+        self.aboutText = aboutText
         self.user_id = user_id

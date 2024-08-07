@@ -39,10 +39,12 @@ if __name__ == "__main__":
     # Import blueprints
     from summariser.app import summariser
     from login.app import user_authentication
+    from history.app import user_history
 
     # Register blueprints
     app.register_blueprint(user_authentication)
     app.register_blueprint(summariser)
+    app.register_blueprint(user_history)
 
     # Run the app
     app.run(debug=True)

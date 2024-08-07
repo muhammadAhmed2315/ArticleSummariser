@@ -1,0 +1,172 @@
+/* 
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font weights
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+- Line heights
+Default: 1
+Small: 1.05
+Medium: 1.2
+Paragraph default: 1.6
+
+- Letter spacing
+-0.5px
+0.75px
+
+--- 02 COLORS
+
+linear-gradient(to bottom, var(--purple-0) 24%, var(--purple-01));
+purple0 = #ece9ff
+purple1 = #d7d3f4
+
+
+
+Primary: #23144c + #23144c (opacity 80) (35, 20, 76)
+
+- Tints: #4d308c, #d7d3f4, #ece9ff, #8f7bd6, #c3b8f2, #d6c7eb, rgba(215, 211, 244, 0.24)
+- Shades: #0e0433
+- Accents: #fdc148, #f1a918
+- Grays: #3f2e0c, #4287f5, #767676
+
+linear-gradient(to bottom, #ebe9fd, #e1def7);
+
+
+
+--- 05 SHADOWS
+
+box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+
+--- 06 BORDER_RADIUS
+
+Default: 10px
+Light: 15px
+Medium: 20px
+Heavy: 25px
+
+-- 07 WHITESPACE
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+html {
+  font-size: 62.5%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Figtree", sans-serif;
+  padding: 2.4rem 4.8rem;
+  background-image: linear-gradient(
+    109.6deg,
+    rgb(78, 62, 255) 11.2%,
+    rgb(164, 69, 255) 91.1%
+  );
+}
+
+/* ******************** NAVIGATION ******************** */
+.navigation-bar {
+  display: flex;
+  padding: 2rem 4rem;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.navigation-bar img {
+  width: 20rem;
+  margin: 0 auto 0 0;
+}
+
+.upgrade-btn:link,
+.upgrade-btn:visited {
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 500;
+  border-radius: 10px;
+  background-color: #fdc148;
+  padding: 1rem 2rem;
+  color: #3f2e0c;
+  border-radius: 20px;
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.upgrade-btn:hover {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.upgrade-btn:active {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+  transform: scale(0.98);
+}
+
+/* ******************** MAIN BODY ******************** */
+.title-text {
+  color: #ffffff;
+  font-size: 3rem;
+}
+
+.data-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+/* ***************  GENERATION CONTAINER ******************** */
+.generation-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.generation-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.arrow-icon {
+  height: 3.2rem;
+  width: 3.2rem;
+  color: rgb(164, 69, 255, 91.1);
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.generation-meta {
+  display: flex;
+  gap: 2rem;
+}
+
+.generation-main {
+  display: flex;
+  gap: 2rem;
+}
+
+.generation-main-input {
+  flex: 1;
+}
+
+.generation-main-output {
+  flex: 1;
+}
+
+/* ********** PAGINATION BUTTONS ********** */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination-btn {
+  color: #ffffff;
+}

@@ -63,6 +63,18 @@ def summarise_text():
                 output += chunk.choices[0].delta.content
                 yield (chunk.choices[0].delta.content)
 
+        completion = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "user",
+                    "content": "Generate in 10 words or less a summary of this text: "
+                    + inputText,
+                }
+            ],
+        )
+        completion = completion.choices[0].message.content
+
         # Update the database
         generation = Generation(
             selectedMode,
@@ -70,6 +82,7 @@ def summarise_text():
             datetime.now(timezone.utc),
             inputText,
             output,
+            completion,
             user_id,
         )
         with app.app_context():
