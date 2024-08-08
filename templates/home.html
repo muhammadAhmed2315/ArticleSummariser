@@ -7,6 +7,10 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <meta name="description" content="TODO" />
     <meta name="keywords" content="TODO" />
     <meta charset="UTF-8" />
@@ -14,22 +18,27 @@
     <link rel="stylesheet" href="../static/css/home.css" />
     <title>TODO</title>
   </head>
+  <nav>
+    <div class="navbar-div">
+      <div class="navbar-logo">
+        <a href="#">
+          <img src="../static/img/home/logo-purple.svg" alt="Logo"
+        /></a>
+      </div>
+      <a class="navbar-link" href="#features">Features</a>
+      <a class="navbar-link" href="#testimonials">Testimonials</a>
+      <a class="navbar-link" href="#pricing">Pricing</a>
+      <a class="navbar-link" href='{{url_for("user_authentication.login")}}'>
+        Login
+      </a>
+      <a class="navbar-link" href='{{url_for("user_authentication.register")}}'>
+        Register
+      </a>
+      <a class="navbar-link" href="#pricing">Try today</a>
+    </div>
+  </nav>
   <body>
     <div class="main-container">
-      <nav>
-        <div class="navbar-div">
-          <img src="../static/img/home/logo-purple.svg" alt="Logo" />
-          <a class="navbar-link" href="#">Features</a>
-          <a class="navbar-link" href="#">Uses for</a>
-          <a class="navbar-link" href="#">Pricing</a>
-          <a class="navbar-link" href="#">Help</a>
-          <a class="navbar-link" href='{{url_for("user_authentication.login")}}'
-            >Login</a
-          >
-          <a class="navbar-link" href="#">Try today</a>
-        </div>
-      </nav>
-
       <div class="hero">
         <h1 class="hero-main-text">
           Summarise and extract key information from articles with our AI
@@ -83,7 +92,7 @@
         />
       </div>
 
-      <div class="more-info-section">
+      <div class="more-info-section" id="features">
         <h1 class="more-info-main-text">
           Summarize, analyze, and organize your research in one place.
         </h1>
@@ -176,7 +185,7 @@
         </div>
       </div>
 
-      <div class="testimonials-pricing-section">
+      <div class="testimonials-pricing-section" id="testimonials">
         <h1 class="testimonials-pricing-heading">What students say</h1>
         <div class="testimonials-section">
           <div class="testimonial-card">
@@ -207,7 +216,7 @@
           </div>
         </div>
 
-        <h1 class="compare-plans-heading">Compare plans</h1>
+        <h1 class="compare-plans-heading" id="pricing">Compare plans</h1>
         <p class="compare-plans-main-text">
           Summarise 3 articles a day with our free summariser tool, or upgrade
           to Scholarcy Library to generate and save unlimited article summaries.

@@ -4,9 +4,10 @@ from flask_migrate import Migrate
 from extensions import db, login_manager
 from models import User
 
+
 # Configure logging
 log = logging.getLogger("werkzeug")
-log.disabled = True
+# log.disabled = True
 
 # Initialize Flask app
 app = Flask(__name__)

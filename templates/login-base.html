@@ -17,12 +17,11 @@
   </head>
   <body>
     <div class="left-section">
-      <img
-        class="logo"
-        href="#"
-        src="../static/img/login/logo.webp"
-        alt="Scholarcy logo"
-      />
+      <div class="navigation-bar-logo">
+        <a href="{{url_for('user_authentication.home')}}"
+          ><img src="../static/img/login/logo-purple.svg"
+        /></a>
+      </div>
       <div class="testimonial-section">
         <p class="testimonial-label">Testimonials</p>
         <p class="testimonial-heading">What People Are Saying</p>

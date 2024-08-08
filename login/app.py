@@ -1,14 +1,15 @@
 from flask import render_template, redirect, request, url_for, Blueprint, flash
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from models import User
 from .forms import LoginForm, RegisterForm
 from extensions import db
 from validate_email_address import validate_email
 
+
 user_authentication = Blueprint("user_authentication", __name__)
 
 
-@user_authentication.route("/home")
+@user_authentication.route("/")
 def home():
     return render_template("home.html")
 
@@ -21,6 +22,9 @@ def logout():
 
 @user_authentication.route("/login", methods=["get", "post"])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for("summariser.summarise"))
+
     loginForm = LoginForm()
 
     if loginForm.is_submitted() and loginForm.validate():
@@ -41,7 +45,7 @@ def login():
         next = request.args.get("next")
 
         if next == None or next[0] != "/":
-            next = url_for("user_authentication.home")
+            next = url_for("summariser.summarise")
 
             return redirect(next)
 

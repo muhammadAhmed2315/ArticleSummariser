@@ -7,6 +7,10 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <meta name="description" content="TODO" />
     <meta name="keywords" content="TODO" />
     <meta charset="UTF-8" />
@@ -19,11 +23,24 @@
   <body>
     <header>
       <nav class="navigation-bar">
-        <img src="../static/img/summariser/logo.svg" />
-        <a class="frosted-glass-btn pressable-btn" href="#"
-          >View Previous Summaries</a
+        <div class="navigation-bar-logo">
+          <a href="{{url_for('user_authentication.home')}}">
+            <img src="../static/img/summariser/logo-white.svg"
+          /></a>
+        </div>
+        <a
+          class="previous-summaries-btn frosted-glass-btn pressable-btn"
+          href="{{url_for('summariser.summarise')}}"
+          >Summarise with AI</a
         >
-        <a class="yellow-action-btn pressable-btn" href="#">Upgrade</a>
+        <a
+          class="logout-btn frosted-glass-btn pressable-btn"
+          href="{{url_for('user_authentication.logout')}}"
+          >Log Out</a
+        >
+        <a class="upgrade-btn yellow-action-btn pressable-btn" href="#"
+          >Upgrade</a
+        >
       </nav>
     </header>
     <h1 class="title-text">Your previous generations</h1>

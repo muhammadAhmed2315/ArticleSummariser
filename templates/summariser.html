@@ -12,17 +12,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/summariser.css" />
+    <link rel="stylesheet" href="../static/css/general.css" />
     <title>TODO</title>
   </head>
 
   <body>
     <header>
       <nav class="navigation-bar">
-        <img src="../static/img/summariser/logo.svg" />
-        <a class="view-previous-summaries-btn" href="#"
+        <div class="navigation-bar-logo">
+          <a href="{{url_for('user_authentication.home')}}"
+            ><img src="../static/img/summariser/logo-white.svg"
+          /></a>
+        </div>
+
+        <a
+          class="previous-summaries-btn frosted-glass-btn pressable-btn"
+          href="{{url_for('user_history.view_past_generations')}}"
           >View Previous Summaries</a
         >
-        <a class="upgrade-btn" href="#">Upgrade</a>
+        <a
+          class="logout-btn frosted-glass-btn pressable-btn"
+          href="{{url_for('user_authentication.logout')}}"
+          >Log Out</a
+        >
+        <a class="upgrade-btn yellow-action-btn pressable-btn" href="#"
+          >Upgrade</a
+        >
       </nav>
     </header>
     <div class="main-container">
