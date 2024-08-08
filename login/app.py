@@ -54,6 +54,9 @@ def login():
 
 @user_authentication.route("/register", methods=["get", "post"])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for("summariser.summarise"))
+
     registerForm = RegisterForm()
 
     if registerForm.is_submitted() and registerForm.validate():
